@@ -16,6 +16,8 @@ function getOptions(opts) {
 	if (typeof opts === "object" && opts != undefined) {
 		Object.assign(options, opts);
 	}
+
+	return options;
 }
 
 /**

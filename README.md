@@ -92,7 +92,7 @@ Add these lines to your **blade**:
 
 ## Advanced usage
 
-> The **.mixrc** supports other advanced configuration besides compiling. For a full feature example check the [.mixrc.example](.mixrc.example) file.
+> For a quick list of the supported features and defaults check the [blueprint](blueprint.mixrc) configuration file.
 
 ### ES6 and React
 Configure **.mixrc** to compile javascript with **react** support.
