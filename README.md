@@ -92,7 +92,7 @@ Add these lines to your **blade**:
 
 ## Advanced usage
 
-> For a quick list of the supported features and defaults check the [blueprint](blueprint.mixrc) configuration file.
+> For a quick list of the supported features and defaults check the [blueprint](https://github.com/liquidsoft/mixrc/blob/master/blueprint.mixrc) configuration file.
 
 ### ES6 and React
 Configure **.mixrc** to compile javascript with **react** support.
