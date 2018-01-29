@@ -1,0 +1,35 @@
+{
+  "notifications": false,
+  "entries": {
+    "js": [
+      "src/js/script1.js",
+      "src/js/script2.js"
+    ],
+    "react": [
+      "src/js/app.js"
+    ],
+    "sass": [
+      "src/sass/style.scss"
+    ]
+  },
+  "output": {
+    "js": "public/js",
+    "react": "public/js",
+    "sass": "public/css"
+  },
+  "extract": {
+    "path": "public/js/vendor.js",
+    "modules": [
+      "react",
+      "react-dom"
+    ]
+  },
+  "autoload": {
+    "react": [
+      "React"
+    ]
+  },
+  "aliases": {
+    "components": "src/js/components"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "env": {
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "ecmaFeatures": {
+    "templateStrings": true,
+    "arrowFunctions": true,
+    "blockBindings": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-mixed-spaces-and-tabs": 0
+  }
+}

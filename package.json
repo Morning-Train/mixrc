@@ -1,0 +1,26 @@
+{
+  "name": "mixrc",
+  "version": "0.1.0",
+  "description": "Laravel mix configuration made easy",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "laravel",
+    "mix",
+    "configuration"
+  ],
+  "author": "Robert Ontiu",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.16.0"
+  },
+  "dependencies": {
+    "cross-env": "^5.1.3",
+    "laravel-mix": "^2.0.0"
+  }
+}
