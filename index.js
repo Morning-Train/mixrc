@@ -6,6 +6,20 @@ function requireJSON(path) {
 	return JSON.parse(fs.readFileSync(path, "utf8"));
 }
 
+function guessPublicDirectory(directory) {
+	if (typeof directory === "string") {
+		return directory;
+	}
+
+	// Laravel
+	if (fs.existsSync(path.join(process.cwd(), "public"))) {
+		return "public";
+	}
+
+	// Other setups
+	return "";
+}
+
 function getOptions(opts) {
 	let options = requireJSON(path.join(__dirname, "blueprint.mixrc"));
 
@@ -26,6 +40,9 @@ function getOptions(opts) {
  */
 module.exports = function (opts) {
 	const options = getOptions(opts);
+
+	// Public path
+	mix.setPublicPath(guessPublicDirectory(options.publicDirectory));
 
 	// Notifications are quite annoying under windows
 	if (options.notifications === false) {

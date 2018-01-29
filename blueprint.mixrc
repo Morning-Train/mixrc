@@ -7,5 +7,6 @@
   "notifications": false,
   "version": false,
   "sourceMaps": true,
-  "processCssUrls": false
+  "processCssUrls": false,
+  "publicDirectory": null
 }

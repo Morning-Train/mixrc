@@ -190,10 +190,11 @@ const MyComponent = require("components/MyComponent");
 import MyComponent from "components/MyComponent";
 ```
 ### Tweaks
+
 > **notifications** (default: *false*)
 > ```json
 > ...
-> "notifications": true"
+> "notifications": tru
 > ...
 > ```
 
@@ -217,6 +218,15 @@ import MyComponent from "components/MyComponent";
 > ```json
 > ...
 > "processCssUrls": true
+> ...
+> ```
+
+> **publicDirectory** (default: *null* = *auto*)
+> Guesses the directory by default based on your laravel/non-laravel setup.
+> You may specify a string in order to change it:
+> ```json
+> ...
+> "publicDirectory": "path/to/public"
 > ...
 > ```
 
