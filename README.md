@@ -61,7 +61,6 @@ Build:
 ```shell
 npm run dev
 ```
-Congrats, you good.
 
 ## How to use with Laravel
 In your **webpack.mix.js** file remove everything and add this line:
@@ -90,7 +89,6 @@ Add these lines to your **blade**:
 <link href="{{ mix('css/app.css') }}" />
 <script src="{{ mix('js/app.js') }"></script>
 ```
-Congrats, you good.
 
 ## Advanced usage
 
@@ -190,4 +188,65 @@ Then, in your script you can load files under that folder by requiring it direct
 const MyComponent = require("components/MyComponent");
 // ES6
 import MyComponent from "components/MyComponent";
+```
+### Tweaks
+> **notifications** (default: *false*)
+> ```json
+> ...
+> "notifications": true"
+> ...
+> ```
+
+> **version** (default: *false*)
+> Use this option with Laravel and function **mix**.
+> ```json
+> ...
+> "version": true
+> ...
+> ```
+
+> **sourceMaps** (default: *true*)
+> ```json
+> ...
+> "sourceMaps": false
+> ...
+> ```
+
+> **processCssUrls** (default: *false*)
+> laravel-mix has this option turned on by default but I found it fairly buggy. 
+> ```json
+> ...
+> "processCssUrls": true
+> ...
+> ```
+
+### One file setup
+You may choose to configure **mixrc** within a single file: **webpack.mix.js**.
+```js
+require("mixrc")({
+	// enable/disable notifications
+	notifications: false,
+
+	// mix-manifest version
+	version: false,
+
+	// source maps
+	sourceMaps: true,
+
+	// process css urls (bugging sometimes)
+	processCssUrls: false,
+
+	// i/o
+	entries: {},
+	output: {},
+
+	// vendor bundle
+	extract: {},
+
+	// autoload globals
+	autoload: {},
+
+	// path aliases
+	aliases: {}
+});
 ```
