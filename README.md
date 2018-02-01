@@ -20,7 +20,6 @@ npm install --save-dev mixrc
 ## How to use outside Laravel
 Add these lines to your **package.json** under section **scripts**:
 ```json
-...
 "dev": "npm run development",
 "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
 "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -28,7 +27,6 @@ Add these lines to your **package.json** under section **scripts**:
 "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
 "prod": "npm run production",
 "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-...
 ```
 
 Create a **webpack.mix.js** file in your project root and add the following line:
@@ -63,6 +61,10 @@ npm run dev
 ```
 
 ## How to use with Laravel
+Before you install mixrc, make sure you remove the existing dependencies for **laravel-mix**, **cross-env** and any previous version of **mixrc**. You can do this easily by executing the following command on your project root directory:
+```shell
+npm uninstall --save-dev cross-env laravel-mix mixrc && npm install --save-dev mixrc && npm install
+```
 In your **webpack.mix.js** file remove everything and add this line:
 ```js
 require('mixrc')();
@@ -92,20 +94,18 @@ Add these lines to your **blade**:
 
 ## Advanced usage
 
-> For a quick list of the supported features and defaults check the [blueprint](https://github.com/liquidsoft/mixrc/blob/master/blueprint.mixrc) configuration file.
+> For a quick list of the supported features and defaults check the [blueprint](blueprint.mixrc) configuration file.
 
 ### ES6 and React
 Configure **.mixrc** to compile javascript with **react** support.
 ```json
 {
   "entries": {
-    ...
     "react": [
       "resources/assets/js/app.js"
     ]
   },
   "output": {
-	...
     "react": "public/js",
   }
 }
@@ -119,7 +119,6 @@ Here is an example on how you can achieve this with **.mixrc** configuration fil
 ```json
 {
   "entries": {
-    ...
     "sass": [
 		"resources/assets/sass/app.scss"
     ],
@@ -128,7 +127,6 @@ Here is an example on how you can achieve this with **.mixrc** configuration fil
     ]
   },
   "output": {
-	...
     "sass": "public/css/sass",
     "less": "public/css/less"
   }
@@ -193,41 +191,31 @@ import MyComponent from "components/MyComponent";
 
 > **notifications** (default: *false*)
 > ```json
-> ...
-> "notifications": tru
-> ...
+> "notifications": true
 > ```
 
 > **version** (default: *false*)
 > Use this option with Laravel and function **mix**.
 > ```json
-> ...
 > "version": true
-> ...
 > ```
 
 > **sourceMaps** (default: *true*)
 > ```json
-> ...
 > "sourceMaps": false
-> ...
 > ```
 
 > **processCssUrls** (default: *false*)
 > laravel-mix has this option turned on by default but I found it fairly buggy. 
 > ```json
-> ...
 > "processCssUrls": true
-> ...
 > ```
 
 > **publicDirectory** (default: *null* = *auto*)
 > Guesses the directory by default based on your laravel/non-laravel setup.
 > You may specify a string in order to change it:
 > ```json
-> ...
 > "publicDirectory": "path/to/public"
-> ...
 > ```
 
 ### One file setup
