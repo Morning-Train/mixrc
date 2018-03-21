@@ -22,13 +22,13 @@ function guessPublicDirectory(directory) {
 }
 
 function guessConfigFile() {
-	let path;
+	let configPath;
 
 	for (let i = 0; i < configFiles.length; i++) {
-		path = path.join(process.cwd(), configFiles[i]);
+		configPath = path.join(process.cwd(), configFiles[i]);
 
-		if (fs.existsSync(path)) {
-			return path;
+		if (fs.existsSync(configPath)) {
+			return configPath;
 		}
 	}
 }
