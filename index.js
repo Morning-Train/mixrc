@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const {mix} = require("laravel-mix");
+const configFiles = [".local.mixrc", ".mixrc.local", ".mixrc"];
 
 function requireJSON(path) {
 	return JSON.parse(fs.readFileSync(path, "utf8"));
@@ -20,11 +21,30 @@ function guessPublicDirectory(directory) {
 	return "";
 }
 
+function guessConfigFile() {
+	let path;
+
+	for (let i = 0; i < configFiles.length; i++) {
+		path = path.join(process.cwd(), configFiles[i]);
+
+		if (fs.existsSync(path)) {
+			return path;
+		}
+	}
+}
+
 function getOptions(opts) {
 	let options = requireJSON(path.join(__dirname, "blueprint.mixrc"));
 
-	if (typeof opts === "string" || opts == undefined) {
-		opts = requireJSON(path.join(process.cwd(), typeof opts === "string" ? opts : ".mixrc"));
+	if (typeof opts === "string") {
+		opts = requireJSON(path.join(process.cwd(), opts));
+	}
+	else if (opts == undefined) {
+		const configFile = guessConfigFile();
+
+		if (configFile) {
+			opts = requireJSON(configFile);
+		}
 	}
 
 	if (typeof opts === "object" && opts != undefined) {
